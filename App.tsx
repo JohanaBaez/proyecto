@@ -1,14 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import UserProfile from './components/UserProfile';
 
-export default function App() {
+
+const App: React.FC = () => {
+  const userProfileData = {
+    name: 'Jessica Randall',
+    location: 'London, United Kingdom',
+    description: '"Front-end developer and avid reader".',
+    imageUrl: 'https://i.pinimg.com/736x/06/5f/06/065f06bab28c6e1bd6e4ee4d0250c88c.jpg',
+    links: [
+      { url: 'https://github.com/JohanaBaez', text: 'GitHub' },
+      { url: 'https://www.frontendmentor.io/', text: 'Frontend Mentor' },
+      { url: 'https://www.linkedin.com/feed/', text: 'LinkedIn' },
+      { url: 'https://twitter.com/?lang=es', text: 'Twitter' },
+    ],
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <UserProfile {...userProfileData} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +32,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
